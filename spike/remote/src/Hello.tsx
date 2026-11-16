@@ -12,7 +12,10 @@ export default function Hello() {
   const { data } = useQuery({
     // needs the shell's QueryClient
     queryKey: ['spike', 'greeting'],
-    queryFn: async () => 'data from the shared QueryClient',
+    // Only runs if the cache is empty. Inside the shell the cache already
+    // holds 'seeded by the shell', so this should NOT be what you see there.
+    queryFn: async () => 'fetched by the remote itself',
+    staleTime: Infinity,
   })
 
   return (

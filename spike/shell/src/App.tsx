@@ -10,6 +10,9 @@ const RemoteHello = lazy(() => import('remote/Hello'))
 
 // One QueryClient for the whole app, owned by the shell and used by remotes.
 const queryClient = new QueryClient()
+// Spike check: the shell puts a value in its cache up front. If the remote
+// shows this value, it is reading the shell's QueryClient, not its own.
+queryClient.setQueryData(['spike', 'greeting'], 'seeded by the shell')
 
 function Home() {
   return (

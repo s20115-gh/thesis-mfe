@@ -7,5 +7,14 @@
     "node": "26.13.1",
     "pnpm": "11.20.0"
   },
-  "scripts": {}
+  "scripts": {
+    "spike:build": "pnpm --filter spike-remote --filter spike-shell build",
+    "spike:serve": "node scripts/serve-static.mjs spike/shell/dist:5173 spike/remote/dist:5174",
+    "spike:check": "node spike/check-sharing.mjs"
+  },
+  "devDependencies": {
+    "compression": "1.8.2",
+    "playwright": "1.65.1",
+    "sirv": "3.0.2"
+  }
 }
