@@ -7,6 +7,9 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
+      // Auto type generation fails with TypeScript 7; remote types are
+      // declared by hand in the shell (src/remotes.d.ts).
+      dts: false,
       name: 'shell',
       remotes: {
         remote: {
@@ -19,6 +22,8 @@ export default defineConfig({
         react: { singleton: true },
         'react-dom': { singleton: true },
         'react-router': { singleton: true },
+        '@tanstack/react-query': { singleton: true },
+        '@supabase/supabase-js': { singleton: true },
       },
     }),
   ],
