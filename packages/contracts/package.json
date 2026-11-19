@@ -3,11 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "Types shared between the shell and feature modules: the props the shell passes in, and the generated database types.",
+  "description": "Contracts shared between the shell and feature modules: the props the shell passes in, and the types generated from the database schema.",
   "exports": {
     ".": "./src/index.ts"
   },
   "scripts": {
     "typecheck": "tsc -p ."
+  },
+  "peerDependencies": {
+    "@supabase/supabase-js": "2.119.0"
+  },
+  "devDependencies": {
+    "@supabase/supabase-js": "2.119.0"
   }
 }

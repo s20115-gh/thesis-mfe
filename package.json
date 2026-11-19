@@ -14,7 +14,10 @@
     "typecheck": "pnpm -r --parallel typecheck",
     "spike:build": "pnpm --filter spike-remote --filter spike-shell build",
     "spike:serve": "node scripts/serve-static.mjs spike/shell/dist:5173 spike/remote/dist:5174",
-    "spike:check": "node spike/check-sharing.mjs"
+    "spike:check": "node spike/check-sharing.mjs",
+    "db:reset": "supabase db reset",
+    "db:check": "docker exec -i supabase_db_thesis-mfe psql -U postgres -v ON_ERROR_STOP=1 -q -t < supabase/checks/schema-check.sql | grep -E \"PASS|FAIL|passed\"",
+    "db:types": "supabase gen types typescript --schema public > packages/contracts/src/database.ts && prettier --write packages/contracts/src/database.ts"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",

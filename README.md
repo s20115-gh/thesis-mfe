@@ -42,6 +42,25 @@ pnpm install --frozen-lockfile
 pnpm exec playwright install chromium   # browser used for checks and measurements
 ```
 
+## Local database
+
+Supabase runs locally in Docker (Supabase CLI 3.1.0).
+
+```bash
+supabase start     # start the local stack
+pnpm db:reset      # recreate the database from migrations + supabase/seed.sql
+pnpm db:check      # check row level security and booking rules
+```
+
+The seed is deterministic and contains 36 venues (30 in Nairobi), their
+services, staff and weekly hours, and about 5,800 bookings (8 weeks of
+history and 2 weeks ahead). Test accounts, password `password123`:
+
+| Email                  | Role                                            |
+| ---------------------- | ----------------------------------------------- |
+| `customer@example.com` | Customer with past and upcoming bookings        |
+| `merchant@example.com` | Merchant who owns Amani Hair Studio (Westlands) |
+
 ## Running the spike
 
 ```bash
