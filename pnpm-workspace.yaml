@@ -1,9 +1,9 @@
 packages:
-  - "apps/*"
-  - "apps/mfe/*"
-  - "packages/*"
-  - "packages/features/*"
-  - "spike/*"
-  - "bench"
+  - 'apps/*'
+  - 'apps/mfe/*'
+  - 'packages/*'
+  - 'packages/features/*'
+  - 'spike/*'
+  - 'bench'
 
 saveExact: true

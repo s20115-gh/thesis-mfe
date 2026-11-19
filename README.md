@@ -9,12 +9,12 @@ customers and three for merchants. The same feature code is composed four
 ways, and each version is measured for load and runtime performance, build
 cost, code complexity and change impact:
 
-| Configuration | Deployable units | Boundaries |
-|---|---|---|
-| Monolith | 1 | One Vite build with route-level code splitting |
-| F2 | 2 | Customer app · Merchant app |
-| F4 | 4 | Discovery + Venue · Booking + Checkout + Account · Calendar · Catalog/staff + Analytics |
-| F8 | 8 | One remote per feature module |
+| Configuration | Deployable units | Boundaries                                                                              |
+| ------------- | ---------------- | --------------------------------------------------------------------------------------- |
+| Monolith      | 1                | One Vite build with route-level code splitting                                          |
+| F2            | 2                | Customer app · Merchant app                                                             |
+| F4            | 4                | Discovery + Venue · Booking + Checkout + Account · Calendar · Catalog/staff + Analytics |
+| F8            | 8                | One remote per feature module                                                           |
 
 Two extra F4 variants isolate specific costs: **F4-noshare** (no shared
 singleton libraries) and **F4-qc** (a separate data cache per remote).

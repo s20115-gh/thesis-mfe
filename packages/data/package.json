@@ -1,0 +1,24 @@
+{
+  "name": "@thesis/data",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Data access shared by every feature: Supabase client factory, QueryClient settings and query keys.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p ."
+  },
+  "dependencies": {
+    "@thesis/contracts": "workspace:*"
+  },
+  "peerDependencies": {
+    "@supabase/supabase-js": "2.119.0",
+    "@tanstack/react-query": "5.107.1"
+  },
+  "devDependencies": {
+    "@supabase/supabase-js": "2.119.0",
+    "@tanstack/react-query": "5.107.1"
+  }
+}

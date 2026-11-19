@@ -1,0 +1,13 @@
+{
+  "name": "@thesis/contracts",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Types shared between the shell and feature modules: the props the shell passes in, and the generated database types.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p ."
+  }
+}

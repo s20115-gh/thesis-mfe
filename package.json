@@ -8,13 +8,26 @@
     "pnpm": "11.20.0"
   },
   "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "pnpm -r --parallel typecheck",
     "spike:build": "pnpm --filter spike-remote --filter spike-shell build",
     "spike:serve": "node scripts/serve-static.mjs spike/shell/dist:5173 spike/remote/dist:5174",
     "spike:check": "node spike/check-sharing.mjs"
   },
   "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@typescript/native": "npm:typescript@7.0.2",
     "compression": "1.8.2",
+    "eslint": "10.15.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "globals": "17.14.0",
     "playwright": "1.65.1",
-    "sirv": "3.0.2"
+    "prettier": "3.10.1",
+    "sirv": "3.0.2",
+    "typescript": "npm:@typescript/typescript6@6.0.2",
+    "typescript-eslint": "8.73.0"
   }
 }
