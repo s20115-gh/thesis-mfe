@@ -8,7 +8,7 @@
     "pnpm": "11.20.0"
   },
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint . && pnpm lint:deps",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "pnpm -r --parallel typecheck",
@@ -17,12 +17,18 @@
     "spike:check": "node spike/check-sharing.mjs",
     "db:reset": "supabase db reset",
     "db:check": "docker exec -i supabase_db_thesis-mfe psql -U postgres -v ON_ERROR_STOP=1 -q -t < supabase/checks/schema-check.sql | grep -E \"PASS|FAIL|passed\"",
-    "db:types": "supabase gen types typescript --schema public > packages/contracts/src/database.ts && prettier --write packages/contracts/src/database.ts"
+    "db:types": "supabase gen types typescript --schema public > packages/contracts/src/database.ts && prettier --write packages/contracts/src/database.ts",
+    "monolith:build": "pnpm --filter @thesis/monolith build",
+    "monolith:serve": "node scripts/serve-static.mjs apps/monolith/dist:5100",
+    "new:feature": "node scripts/new-feature.mjs",
+    "lint:deps": "depcruise apps packages --config .dependency-cruiser.cjs",
+    "test:e2e": "pnpm --filter @thesis/e2e test"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "@typescript/native": "npm:typescript@7.0.2",
     "compression": "1.8.2",
+    "dependency-cruiser": "18.8.0",
     "eslint": "10.15.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-react-hooks": "7.1.1",

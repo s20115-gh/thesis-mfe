@@ -1,0 +1,15 @@
+{
+  "name": "@thesis/e2e",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "End-to-end tests. The same suite runs against every configuration (monolith, F2, F4, F8); only BASE_URL changes.",
+  "scripts": {
+    "test": "playwright test",
+    "typecheck": "tsc -p ."
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.1",
+    "@types/node": "24.19.2"
+  }
+}

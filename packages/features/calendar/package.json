@@ -1,0 +1,31 @@
+{
+  "name": "@thesis/feature-calendar",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Calendar feature (merchant). Owns every route under the path the shell mounts it at.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p ."
+  },
+  "dependencies": {
+    "@thesis/contracts": "workspace:*",
+    "@thesis/data": "workspace:*",
+    "@thesis/ui": "workspace:*"
+  },
+  "peerDependencies": {
+    "@supabase/supabase-js": "2.119.0",
+    "@tanstack/react-query": "5.107.1",
+    "react": "19.3.1",
+    "react-router": "8.5.1"
+  },
+  "devDependencies": {
+    "@supabase/supabase-js": "2.119.0",
+    "@tanstack/react-query": "5.107.1",
+    "@types/react": "19.3.0",
+    "react": "19.3.1",
+    "react-router": "8.5.1"
+  }
+}

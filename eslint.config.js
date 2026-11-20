@@ -29,6 +29,13 @@ export default defineConfig([
     },
   },
 
+  // Playwright fixtures call a function named `use`, which the React hooks
+  // rules mistake for React's use() hook.
+  {
+    files: ['e2e/**/*.ts'],
+    rules: { 'react-hooks/rules-of-hooks': 'off' },
+  },
+
   // Node scripts
   {
     files: ['**/*.{js,mjs}'],

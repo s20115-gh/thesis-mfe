@@ -61,6 +61,28 @@ history and 2 weeks ahead). Test accounts, password `password123`:
 | `customer@example.com` | Customer with past and upcoming bookings        |
 | `merchant@example.com` | Merchant who owns Amani Hair Studio (Westlands) |
 
+## Running the monolith
+
+```bash
+cp .env.example .env.local   # once; local Supabase URL and key
+pnpm monolith:build
+pnpm monolith:serve          # http://localhost:5100
+```
+
+Supabase must be running (`supabase start`). Sign in with a test account
+above.
+
+## End-to-end tests
+
+```bash
+pnpm test:e2e                                  # builds the monolith, serves it on :5199, runs the suite
+BASE_URL=http://localhost:5100 pnpm test:e2e   # run the same suite against an already running build
+```
+
+Supabase must be running. Every configuration must pass the same suite; the
+tests only know URLs, never app internals. A test also fails if the page logs
+a console error. The HTML report is written to `e2e/playwright-report/`.
+
 ## Running the spike
 
 ```bash
