@@ -5,7 +5,8 @@
   "type": "module",
   "description": "Shared UI components used by the shell and every feature.",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./styles.css": "./src/styles.css"
   },
   "scripts": {
     "typecheck": "tsc -p ."

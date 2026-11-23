@@ -14,6 +14,7 @@ export type {
 export { Constants } from './database.ts'
 
 export type { AppSupabaseClient, FeatureProps } from './feature.ts'
+export { basePaths, paths } from './paths.ts'
 
 // Short names for table rows, e.g. `Venue` instead of `Tables<'venues'>`.
 export type Profile = Tables<'profiles'>
@@ -32,3 +33,6 @@ export type PaymentStatus = Enums<'payment_status'>
 // One row returned by the get_available_slots RPC.
 export type AvailableSlot =
   Database['public']['Functions']['get_available_slots']['Returns'][number]
+
+// One row returned by the search_venues RPC.
+export type VenueSearchResult = Database['public']['Functions']['search_venues']['Returns'][number]

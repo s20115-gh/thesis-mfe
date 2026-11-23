@@ -8,9 +8,13 @@ import { signedOut, users, type Role } from '../support/users.ts'
  */
 const routes: { feature: string; path: string; as: Role | 'anonymous' }[] = [
   { feature: 'discovery', path: '/salons', as: 'anonymous' },
-  { feature: 'venue', path: '/venues', as: 'anonymous' },
-  { feature: 'booking', path: '/book', as: 'customer' },
-  { feature: 'checkout', path: '/checkout', as: 'customer' },
+  { feature: 'venue', path: '/venues/amani-hair-studio', as: 'anonymous' },
+  { feature: 'booking', path: '/book/9ffd7299-12f3-eb80-01b8-1301c758b7dc', as: 'customer' },
+  {
+    feature: 'checkout',
+    path: '/checkout/3a5367b0-a599-32c8-d6e1-1ad6bcb53e96/confirmed',
+    as: 'customer',
+  },
   { feature: 'account', path: '/account', as: 'customer' },
   { feature: 'calendar', path: '/merchant/calendar', as: 'merchant' },
   { feature: 'catalog-staff', path: '/merchant/catalog', as: 'merchant' },

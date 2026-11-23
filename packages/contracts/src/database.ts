@@ -315,6 +315,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      create_booking: {
+        Args: { p_service_id: string; p_staff_id: string; p_starts_at: string }
+        Returns: string
+      }
       get_available_slots: {
         Args: { p_day: string; p_service_id: string }
         Returns: {
@@ -324,7 +328,37 @@ export type Database = {
       }
       is_merchant: { Args: Record<PropertyKey, never>; Returns: boolean }
       is_venue_owner: { Args: { p_venue_id: string }; Returns: boolean }
+      like_escape: { Args: { p_text: string }; Returns: string }
+      list_cities: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          city: string
+          venue_count: number
+        }[]
+      }
       mock_checkout: { Args: { p_booking_id: string }; Returns: string }
+      search_venues: {
+        Args: {
+          p_category?: Database['public']['Enums']['venue_category']
+          p_city?: string
+          p_min_rating?: number
+          p_sort?: string
+          p_text?: string
+        }
+        Returns: {
+          address: string
+          category: Database['public']['Enums']['venue_category']
+          city: string
+          cover_image_url: string
+          id: string
+          min_price_cents: number
+          name: string
+          rating: number
+          review_count: number
+          service_count: number
+          slug: string
+        }[]
+      }
     }
     Enums: {
       booking_status: 'pending' | 'confirmed' | 'completed' | 'cancelled' | 'no_show'

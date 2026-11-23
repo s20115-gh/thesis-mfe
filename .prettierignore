@@ -2,3 +2,5 @@ dist
 .mf
 pnpm-lock.yaml
 spike
+playwright-report
+test-results

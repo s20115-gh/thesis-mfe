@@ -1,30 +1,17 @@
 import type { FeatureProps } from '@thesis/contracts'
 import { Link, Route, Routes as RouterRoutes } from 'react-router'
+import { SearchPage } from './SearchPage.tsx'
 
 /**
- * Discovery feature. The shell mounts this at `basePath` (with a trailing
- * `/*`), and every route below it belongs to this feature.
- *
- * Rules for every feature:
- * - Never import another feature. Link to it by URL instead.
- * - Get the Supabase client from props, never create one.
- * - Use queryKeys from @thesis/data so cache entries are shared.
+ * Discovery: search salons by city, service type and text, with rating and
+ * sort filters. The search lives in the URL query string.
  */
-export default function Routes({ basePath }: FeatureProps) {
+export default function Routes({ basePath, supabase }: FeatureProps) {
   return (
     <RouterRoutes>
-      <Route index element={<Home />} />
+      <Route index element={<SearchPage supabase={supabase} />} />
       <Route path="*" element={<NotFound basePath={basePath} />} />
     </RouterRoutes>
-  )
-}
-
-function Home() {
-  return (
-    <section className="page" data-testid="feature-discovery">
-      <h1>Discovery</h1>
-      <p className="muted">Placeholder for the Discovery feature.</p>
-    </section>
   )
 }
 

@@ -6,7 +6,8 @@ import { Link, Route, Routes as RouterRoutes } from 'react-router'
  * `/*`), and every route below it belongs to this feature.
  *
  * Rules for every feature:
- * - Never import another feature. Link to it by URL instead.
+ * - Never import another feature. Link to it with `paths` / `basePaths`
+ * from @thesis/contracts, never a hard-coded URL (both are lint errors).
  * - Get the Supabase client from props, never create one.
  * - Use queryKeys from @thesis/data so cache entries are shared.
  */

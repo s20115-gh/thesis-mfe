@@ -15,11 +15,15 @@ import type { BookingStatus, VenueCategory } from '@thesis/contracts'
 /** Calendar dates in the venue's local time, as 'YYYY-MM-DD'. */
 export type DateRange = { from: string; to: string }
 
+export type VenueSort = 'rating' | 'price' | 'name'
+
 export type VenueSearch = {
-  city: string
+  city?: string
   category?: VenueCategory
   /** Free text matched against venue and service names. */
   text?: string
+  minRating?: number
+  sort?: VenueSort
 }
 
 export type BookingFilter = {
@@ -33,6 +37,8 @@ const venues = {
   all: () => [...root, 'venues'] as const,
   search: (search: VenueSearch) => [...venues.all(), 'search', search] as const,
   detail: (venueId: string) => [...venues.all(), 'detail', venueId] as const,
+  /** A venue profile with services and staff, looked up by its URL slug. */
+  bySlug: (slug: string) => [...venues.all(), 'slug', slug] as const,
   /** Venues owned by a merchant (merchant side). */
   owned: (ownerId: string) => [...venues.all(), 'owned', ownerId] as const,
 }

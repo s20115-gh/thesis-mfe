@@ -10,6 +10,8 @@
   },
   "devDependencies": {
     "@playwright/test": "1.65.1",
+    "@supabase/supabase-js": "2.119.0",
+    "@thesis/contracts": "workspace:*",
     "@types/node": "24.19.2"
   }
 }

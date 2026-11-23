@@ -138,7 +138,7 @@ select
     end, v.area, v.city),
   v.category,
   v.city,
-  format('%s Road, %s, %s', (array['Mpaka', 'Argwings Kodhek', 'James Gichuru', 'Ngong', 'Waiyaki Way', 'Kenyatta', 'Moi', 'Ring Road'])[1 + v.n % 8], v.area, v.city),
+  format('%s, %s, %s', (array['Mpaka Road', 'Argwings Kodhek Road', 'James Gichuru Road', 'Ngong Road', 'Waiyaki Way', 'Kenyatta Avenue', 'Moi Avenue', 'Ring Road'])[1 + v.n % 8], v.area, v.city),
   round((3.8 + (v.n * 7 % 12) / 10.0)::numeric, 1),  -- 3.8 to 4.9
   10 + (v.n * 37) % 390,
   now() - make_interval(days => 400 - v.n * 5)

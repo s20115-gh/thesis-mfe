@@ -5,6 +5,7 @@ import { createRoot } from 'react-dom/client'
 import { RouterProvider } from 'react-router/dom'
 import { router } from './router.tsx'
 import { SessionProvider } from './shell/session.tsx'
+import '@thesis/ui/styles.css'
 import './styles.css'
 
 // Created exactly once for the whole app. Features get the client through

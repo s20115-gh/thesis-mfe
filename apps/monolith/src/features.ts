@@ -1,4 +1,4 @@
-import type { FeatureProps, UserRole } from '@thesis/contracts'
+import { basePaths, type FeatureProps, type UserRole } from '@thesis/contracts'
 import { lazy, type ComponentType, type LazyExoticComponent } from 'react'
 
 export type FeatureName =
@@ -34,56 +34,56 @@ export const features: Feature[] = [
   {
     name: 'discovery',
     title: 'Find a salon',
-    basePath: '/salons',
+    basePath: basePaths.discovery,
     access: 'public',
     Routes: lazy(() => import('@thesis/feature-discovery')),
   },
   {
     name: 'venue',
     title: 'Venue profile',
-    basePath: '/venues',
+    basePath: basePaths.venue,
     access: 'public',
     Routes: lazy(() => import('@thesis/feature-venue')),
   },
   {
     name: 'booking',
     title: 'Booking',
-    basePath: '/book',
+    basePath: basePaths.booking,
     access: 'signed-in',
     Routes: lazy(() => import('@thesis/feature-booking')),
   },
   {
     name: 'checkout',
     title: 'Checkout',
-    basePath: '/checkout',
+    basePath: basePaths.checkout,
     access: 'signed-in',
     Routes: lazy(() => import('@thesis/feature-checkout')),
   },
   {
     name: 'account',
     title: 'My bookings',
-    basePath: '/account',
+    basePath: basePaths.account,
     access: 'signed-in',
     Routes: lazy(() => import('@thesis/feature-account')),
   },
   {
     name: 'calendar',
     title: 'Calendar',
-    basePath: '/merchant/calendar',
+    basePath: basePaths.calendar,
     access: 'merchant',
     Routes: lazy(() => import('@thesis/feature-calendar')),
   },
   {
     name: 'catalog-staff',
     title: 'Catalog',
-    basePath: '/merchant/catalog',
+    basePath: basePaths.catalogStaff,
     access: 'merchant',
     Routes: lazy(() => import('@thesis/feature-catalog-staff')),
   },
   {
     name: 'analytics',
     title: 'Analytics',
-    basePath: '/merchant/analytics',
+    basePath: basePaths.analytics,
     access: 'merchant',
     Routes: lazy(() => import('@thesis/feature-analytics')),
   },

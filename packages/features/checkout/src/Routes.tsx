@@ -1,40 +1,20 @@
-import type { FeatureProps } from '@thesis/contracts'
-import { Link, Route, Routes as RouterRoutes } from 'react-router'
+import { paths, type FeatureProps } from '@thesis/contracts'
+import { Navigate, Route, Routes as RouterRoutes } from 'react-router'
+import { CheckoutPage, ConfirmationPage } from './pages.tsx'
 
 /**
- * Checkout feature. The shell mounts this at `basePath` (with a trailing
- * `/*`), and every route below it belongs to this feature.
- *
- * Rules for every feature:
- * - Never import another feature. Link to it by URL instead.
- * - Get the Supabase client from props, never create one.
- * - Use queryKeys from @thesis/data so cache entries are shared.
+ * Checkout: pay for a pending booking (mock payment) and see the
+ * confirmation.
+ *   <basePath>/:bookingId            pay
+ *   <basePath>/:bookingId/confirmed  confirmation
  */
-export default function Routes({ basePath }: FeatureProps) {
+export default function Routes({ supabase }: FeatureProps) {
   return (
     <RouterRoutes>
-      <Route index element={<Home />} />
-      <Route path="*" element={<NotFound basePath={basePath} />} />
+      <Route index element={<Navigate to={paths.account} replace />} />
+      <Route path=":bookingId" element={<CheckoutPage supabase={supabase} />} />
+      <Route path=":bookingId/confirmed" element={<ConfirmationPage supabase={supabase} />} />
+      <Route path="*" element={<Navigate to={paths.account} replace />} />
     </RouterRoutes>
-  )
-}
-
-function Home() {
-  return (
-    <section className="page" data-testid="feature-checkout">
-      <h1>Checkout</h1>
-      <p className="muted">Placeholder for the Checkout feature.</p>
-    </section>
-  )
-}
-
-function NotFound({ basePath }: { basePath: string }) {
-  return (
-    <section className="page">
-      <h1>Not found</h1>
-      <p>
-        <Link to={basePath}>Back to Checkout</Link>
-      </p>
-    </section>
   )
 }
